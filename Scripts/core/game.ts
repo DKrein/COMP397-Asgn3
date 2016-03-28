@@ -1,4 +1,16 @@
-﻿/// <reference path = "_reference.ts" />
+﻿/*
+Author: Douglas Krein
+Last Modified by: Douglas krein
+Last Modified: 03-28-2016
+File description: 
+- Here is the entry point of my game, where the magic starts
+
+Revision:
+1 - added the instructions case for changing the scene
+*/
+
+
+/// <reference path = "_reference.ts" />
 
 // global variables
 var assets: createjs.LoadQueue;
@@ -11,6 +23,7 @@ var scene: number;
 
 // Game Scenes
 var menu: scenes.Menu;
+var instructions: scenes.Instructions;
 var play: scenes.Play;
 var end: scenes.End;
 
@@ -92,6 +105,13 @@ function changeScene(): void {
             menu = new scenes.Menu();
             currentScene = menu;
             console.log("Starting MENU Scene");
+            break;
+        case config.Scene.INSTRUCTIONS:
+            // show the INSTRUCTION scene
+            stage.removeAllChildren();
+            instructions = new scenes.Instructions();
+            currentScene = instructions;
+            console.log("Starting INSTRUCTIONS Scene");
             break;
         case config.Scene.PLAY:
             // show the PLAY scene

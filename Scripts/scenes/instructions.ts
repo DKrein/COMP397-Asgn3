@@ -1,17 +1,6 @@
-﻿/*
-Author: Douglas Krein
-Last Modified by: Douglas krein
-Last Modified: 03-28-2016
-File description: 
-- menu scene, first UI shown to the user
-
-Revision:
-1 - 
-*/
-
-// MENU SCENE
+﻿// INSTRUCTIONS SCENE
 module scenes {
-    export class Menu extends objects.Scene {
+    export class Instructions extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _menuLabel: objects.Label;
         private _startButton: objects.Button;
@@ -27,7 +16,7 @@ module scenes {
         public start(): void {
             //Add Menu Label
             this._menuLabel = new objects.Label(
-                "MENU SCENE", "60px Consolas",
+                "INSTRUCTIONS SCENE", "60px Consolas",
                 "#000000",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._menuLabel);

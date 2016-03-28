@@ -8,6 +8,7 @@ var currentScene;
 var scene;
 // Game Scenes
 var menu;
+var instruction;
 var play;
 var end;
 var assetData = [
@@ -74,6 +75,13 @@ function changeScene() {
             currentScene = menu;
             console.log("Starting MENU Scene");
             break;
+        case config.Scene.INSTRUCTION:
+            // show the INSTRUCTION scene
+            stage.removeAllChildren();
+            instruction = new scenes.Instruction();
+            currentScene = instruction;
+            console.log("Starting INSTRUCTION Scene");
+            break;
         case config.Scene.PLAY:
             // show the PLAY scene
             stage.removeAllChildren();
@@ -92,4 +100,5 @@ function changeScene() {
     console.log(currentScene.numChildren);
 }
 window.onload = preload;
+
 //# sourceMappingURL=game.js.map

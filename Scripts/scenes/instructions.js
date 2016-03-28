@@ -3,18 +3,18 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-// MENU SCENE
+// INSTRUCTION SCENE
 var scenes;
 (function (scenes) {
-    var Menu = (function (_super) {
-        __extends(Menu, _super);
+    var Instruction = (function (_super) {
+        __extends(Instruction, _super);
         // CONSTRUCTOR ++++++++++++++++++++++
-        function Menu() {
+        function Instruction() {
             _super.call(this);
         }
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
-        Menu.prototype.start = function () {
+        Instruction.prototype.start = function () {
             //Add Menu Label
             this._menuLabel = new objects.Label("MENU SCENE", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._menuLabel);
@@ -27,18 +27,18 @@ var scenes;
             stage.addChild(this);
         };
         // INTRO Scene updates here
-        Menu.prototype.update = function () {
+        Instruction.prototype.update = function () {
         };
         //EVENT HANDLERS ++++++++++++++++++++
         // LEFT_CAVE Button click event handler
-        Menu.prototype._startButtonClick = function (event) {
+        Instruction.prototype._startButtonClick = function (event) {
             // Switch to the LEFT_CAVE Scene
             scene = config.Scene.PLAY;
             changeScene();
         };
-        return Menu;
+        return Instruction;
     }(objects.Scene));
-    scenes.Menu = Menu;
+    scenes.Instruction = Instruction;
 })(scenes || (scenes = {}));
 
-//# sourceMappingURL=menu.js.map
+//# sourceMappingURL=instructions.js.map

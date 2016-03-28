@@ -1,3 +1,14 @@
+/*
+Author: Douglas Krein
+Last Modified by: Douglas krein
+Last Modified: 03-28-2016
+File description: 
+- game over scene
+
+Revision:
+1 - 
+*/
+
 // LEFT_CAVE SCENE
 module scenes {
     export class End extends objects.Scene {
