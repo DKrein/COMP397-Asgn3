@@ -17,7 +17,7 @@ module objects {
         
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor(bitmapString:string) {
-            super(assets.getResult(bitmapString));
+           super(assets.getResult(bitmapString));
             
            this._speed = new createjs.Point(0, 0);
            this.width = this.getBounds().width;

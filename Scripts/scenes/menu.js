@@ -1,3 +1,13 @@
+/*
+Author: Douglas Krein
+Last Modified by: Douglas krein
+Last Modified: 03-28-2016
+File description:
+- menu scene, first UI shown to the user
+
+Revision:
+1 -
+*/
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }

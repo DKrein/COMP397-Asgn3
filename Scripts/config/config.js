@@ -1,3 +1,13 @@
+/*
+Author: Douglas Krein
+Last Modified by: Douglas krein
+Last Modified: 03-28-2016
+File description:
+- keep configurations to make the game work
+
+Revision:
+1 - added instructions static var and changed the screen size
+*/
 var config;
 (function (config) {
     // Scene Constants
@@ -5,7 +15,7 @@ var config;
         function Scene() {
         }
         Scene.MENU = 0;
-        Scene.INSTRUCTION = 1;
+        Scene.INSTRUCTIONS = 1;
         Scene.PLAY = 2;
         Scene.END = 3;
         return Scene;

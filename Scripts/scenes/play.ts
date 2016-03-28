@@ -6,14 +6,14 @@ File description:
 - scene where the game runs
 
 Revision:
-1 - 
+1 - ajusted name of background class
 */
 
 // PLAY SCENE
 module scenes {
     export class Play extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _ocean: objects.Ocean;
+        private _background: objects.Background;
         private _island: objects.Island;
         private _clouds: objects.Cloud[];
         private _cloudCount:number;
@@ -36,9 +36,9 @@ module scenes {
             // Instantiate Cloud array
             this._clouds = new Array<objects.Cloud>();
                 
-            // added ocean to the scene
-            this._ocean = new objects.Ocean();
-            this.addChild(this._ocean);
+            // added background to the scene
+            this._background = new objects.Background();
+            this.addChild(this._background);
 
             // added island to the scene
             this._island = new objects.Island();
@@ -63,7 +63,7 @@ module scenes {
 
         // PLAY Scene updates here
         public update(): void {
-            this._ocean.update();
+            this._background.update();
             this._island.update();
            
             this._player.update();
@@ -74,6 +74,7 @@ module scenes {
             });
             
             this._collision.check(this._island);
+            
         }
         
         

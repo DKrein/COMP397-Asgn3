@@ -1,3 +1,14 @@
+/*
+Author: Douglas Krein
+Last Modified by: Douglas krein
+Last Modified: 03-28-2016
+File description:
+- Here is the entry point of my game, where the magic starts
+
+Revision:
+1 - added the instructions case for changing the scene
+2 - added some new images for avatar, enemy and InstructionButton
+*/
 /// <reference path = "_reference.ts" />
 // global variables
 var assets;
@@ -8,18 +19,24 @@ var currentScene;
 var scene;
 // Game Scenes
 var menu;
-var instruction;
+var instructions;
 var play;
 var end;
 var assetData = [
     // Add your Assets here
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
+    { id: "InstructionButton", src: "../../Assets/images/InstructionButton.png" },
     { id: "RestartButton", src: "../../Assets/images/RestartButton.png" },
     { id: "BackButton", src: "../../Assets/images/BackButton.png" },
-    { id: "ocean", src: "../../Assets/images/ocean.gif" },
     { id: "plane", src: "../../Assets/images/plane.png" },
     { id: "island", src: "../../Assets/images/island.png" },
     { id: "cloud", src: "../../Assets/images/cloud.png" },
+    { id: "avatar", src: "../../Assets/images/avatar.png" },
+    { id: "enemy1", src: "../../Assets/images/enemy1.png" },
+    { id: "enemy2", src: "../../Assets/images/enemy2.png" },
+    { id: "enemy3", src: "../../Assets/images/enemy3.png" },
+    { id: "enemy4", src: "../../Assets/images/enemy4.png" },
+    { id: "background", src: "../../Assets/images/background.png" },
 ];
 function preload() {
     assets = new createjs.LoadQueue();
@@ -75,12 +92,12 @@ function changeScene() {
             currentScene = menu;
             console.log("Starting MENU Scene");
             break;
-        case config.Scene.INSTRUCTION:
+        case config.Scene.INSTRUCTIONS:
             // show the INSTRUCTION scene
             stage.removeAllChildren();
-            instruction = new scenes.Instruction();
-            currentScene = instruction;
-            console.log("Starting INSTRUCTION Scene");
+            instructions = new scenes.Instructions();
+            currentScene = instructions;
+            console.log("Starting INSTRUCTIONS Scene");
             break;
         case config.Scene.PLAY:
             // show the PLAY scene

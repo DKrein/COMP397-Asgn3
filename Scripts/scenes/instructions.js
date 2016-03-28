@@ -3,20 +3,20 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-// INSTRUCTION SCENE
+// INSTRUCTIONS SCENE
 var scenes;
 (function (scenes) {
-    var Instruction = (function (_super) {
-        __extends(Instruction, _super);
+    var Instructions = (function (_super) {
+        __extends(Instructions, _super);
         // CONSTRUCTOR ++++++++++++++++++++++
-        function Instruction() {
+        function Instructions() {
             _super.call(this);
         }
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
-        Instruction.prototype.start = function () {
+        Instructions.prototype.start = function () {
             //Add Menu Label
-            this._menuLabel = new objects.Label("MENU SCENE", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this._menuLabel = new objects.Label("INSTRUCTIONS SCENE", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._menuLabel);
             // add the Start button to the MENU scene
             this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);
@@ -27,18 +27,18 @@ var scenes;
             stage.addChild(this);
         };
         // INTRO Scene updates here
-        Instruction.prototype.update = function () {
+        Instructions.prototype.update = function () {
         };
         //EVENT HANDLERS ++++++++++++++++++++
         // LEFT_CAVE Button click event handler
-        Instruction.prototype._startButtonClick = function (event) {
+        Instructions.prototype._startButtonClick = function (event) {
             // Switch to the LEFT_CAVE Scene
             scene = config.Scene.PLAY;
             changeScene();
         };
-        return Instruction;
+        return Instructions;
     }(objects.Scene));
-    scenes.Instruction = Instruction;
+    scenes.Instructions = Instructions;
 })(scenes || (scenes = {}));
 
 //# sourceMappingURL=instructions.js.map

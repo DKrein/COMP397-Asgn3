@@ -1,15 +1,26 @@
+/*
+Author: Douglas Krein
+Last Modified by: Douglas krein
+Last Modified: 03-29-2016
+File description: 
+- Player class, take care about the player information, position and movment
+
+Revision:
+1 - changed for vertical bounds, changed the axis which the player will move 
+*/
+
 module objects {
     // PLAYER CLASS ++++++++++++++++++++++++++++++
     export class Player extends createjs.Bitmap {
         // PRIVATE INSTANCE VARIABLES
-        private _leftBounds: number;
-        private _rightBounds: number;
+        private _upperBounds: number;
+        private _lowerBounds: number;
 
         // PUBLIC INSTANCE VARIABLES
         public width: number;
         public height: number;
         constructor() {
-            super(assets.getResult("plane"));
+            super(assets.getResult("avatar"));
 
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
@@ -17,27 +28,27 @@ module objects {
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
 
-            this._leftBounds = this.width * 0.5;
-            this._rightBounds = config.Screen.WIDTH - (this.width * 0.5);
+            this._upperBounds = this.height * 0.5;
+            this._lowerBounds = config.Screen.HEIGHT - (this.height * 0.5);
 
-            this.y = 430;
+            this.x = 950;
         }
 
         // PRIVATE METHODS
         private _checkBounds(): void {
-            if (this.x < this._leftBounds) {
-                this.x = this._leftBounds;
+            if (this.y < this._upperBounds) {
+                this.y = this._upperBounds;
             }
 
-            if (this.x > this._rightBounds) {
-                this.x = this._rightBounds;
+            if (this.y > this._lowerBounds) {
+                this.y = this._lowerBounds;
             }
         }
 
 
         // PUBLIC METHODS
         public update(): void {
-            this.x = stage.mouseX;
+            this.y = stage.mouseY;
             this._checkBounds();
         }
     }

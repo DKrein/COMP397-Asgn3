@@ -1,3 +1,13 @@
+/*
+Author: Douglas Krein
+Last Modified by: Douglas krein
+Last Modified: 03-28-2016
+File description:
+- scene where the game runs
+
+Revision:
+1 - ajusted name of background class
+*/
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -19,9 +29,9 @@ var scenes;
             this._cloudCount = 3;
             // Instantiate Cloud array
             this._clouds = new Array();
-            // added ocean to the scene
-            this._ocean = new objects.Ocean();
-            this.addChild(this._ocean);
+            // added background to the scene
+            this._background = new objects.Background();
+            this.addChild(this._background);
             // added island to the scene
             this._island = new objects.Island();
             this.addChild(this._island);
@@ -41,7 +51,7 @@ var scenes;
         // PLAY Scene updates here
         Play.prototype.update = function () {
             var _this = this;
-            this._ocean.update();
+            this._background.update();
             this._island.update();
             this._player.update();
             this._clouds.forEach(function (cloud) {

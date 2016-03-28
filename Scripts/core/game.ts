@@ -7,6 +7,7 @@ File description:
 
 Revision:
 1 - added the instructions case for changing the scene
+2 - added some new images for avatar, enemy and InstructionButton
 */
 
 
@@ -30,12 +31,20 @@ var end: scenes.End;
 var assetData:objects.Asset[] = [
     // Add your Assets here
     {id: "StartButton", src:"../../Assets/images/StartButton.png"},
+    {id: "InstructionButton", src:"../../Assets/images/InstructionButton.png"},
     {id: "RestartButton", src:"../../Assets/images/RestartButton.png"},
     {id: "BackButton", src:"../../Assets/images/BackButton.png"},
-    {id: "ocean", src:"../../Assets/images/ocean.gif"},
     {id: "plane", src:"../../Assets/images/plane.png"},
     {id: "island", src:"../../Assets/images/island.png"},
     {id: "cloud", src:"../../Assets/images/cloud.png"},
+    
+    {id: "avatar", src:"../../Assets/images/avatar.png"},
+    {id: "enemy1", src:"../../Assets/images/enemy1.png"},
+    {id: "enemy2", src:"../../Assets/images/enemy2.png"},
+    {id: "enemy3", src:"../../Assets/images/enemy3.png"},
+    {id: "enemy4", src:"../../Assets/images/enemy4.png"},
+    {id: "background", src:"../../Assets/images/background.png"},
+    
 ];
 
 function preload() {

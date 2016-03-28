@@ -1,6 +1,7 @@
 module managers {
     // COLLISION MANAGER CLASS
     export class Collision {
+        
         // PRIVATE INSTANCE VARIABLES
         private _player: objects.Player;
         constructor(player:objects.Player) {
