@@ -7,6 +7,7 @@ File description:
 
 Revision:
 1 - added instructions static var and changed the screen size
+2 - changed the name from END to GAMEOVER
 */
 
 module config {
@@ -16,7 +17,7 @@ module config {
         public static MENU: number = 0;
         public static INSTRUCTIONS: number = 1;
         public static PLAY: number = 2;
-        public static END: number = 3;
+        public static GAMEOVER: number = 3;
     }
     
     

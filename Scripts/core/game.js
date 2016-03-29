@@ -8,6 +8,8 @@ File description:
 Revision:
 1 - added the instructions case for changing the scene
 2 - added some new images for avatar, enemy and InstructionButton
+3 - added white and black background to the fadeIn and fadeOut
+4 - changed the name from END to GAMEOVER
 */
 /// <reference path = "_reference.ts" />
 // global variables
@@ -17,24 +19,31 @@ var stage;
 var stats;
 var currentScene;
 var scene;
+//player
+var player;
 // Game Scenes
 var menu;
 var instructions;
 var play;
-var end;
+var gameOver;
 var assetData = [
     // Add your Assets here
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
-    { id: "InstructionButton", src: "../../Assets/images/InstructionButton.png" },
+    { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
     { id: "RestartButton", src: "../../Assets/images/RestartButton.png" },
     { id: "BackButton", src: "../../Assets/images/BackButton.png" },
+    { id: "BlackBackground", src: "../../Assets/images/BlackBackground.png" },
+    { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" },
+    { id: "MenuBackground", src: "../../Assets/images/menuBg.png" },
+    { id: "GameOverBackground", src: "../../Assets/images/gameOverBg.png" },
+    { id: "InstructionsBackground", src: "../../Assets/images/instructionsBg.png" },
     { id: "island", src: "../../Assets/images/island.png" },
     { id: "avatar", src: "../../Assets/images/avatar.png" },
     { id: "enemy1", src: "../../Assets/images/enemy1.png" },
     { id: "enemy2", src: "../../Assets/images/enemy2.png" },
     { id: "enemy3", src: "../../Assets/images/enemy3.png" },
     { id: "enemy4", src: "../../Assets/images/enemy4.png" },
-    { id: "background", src: "../../Assets/images/background.png" },
+    { id: "road", src: "../../Assets/images/road.png" },
 ];
 function preload() {
     assets = new createjs.LoadQueue();
@@ -104,12 +113,12 @@ function changeScene() {
             currentScene = play;
             console.log("Starting PLAY Scene");
             break;
-        case config.Scene.END:
-            // show the END scene
+        case config.Scene.GAMEOVER:
+            // show the GAMEOVER scene
             stage.removeAllChildren();
-            end = new scenes.End();
-            currentScene = end;
-            console.log("Starting END Scene");
+            gameOver = new scenes.GameOver();
+            currentScene = gameOver;
+            console.log("Starting GAMEOVER Scene");
             break;
     }
     console.log(currentScene.numChildren);

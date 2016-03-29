@@ -10,7 +10,7 @@
 /// <reference path="../objects/car.ts"/>
 /// <reference path="../objects/player.ts" />
 /// <reference path="../managers/collision.ts" />
-/// <reference path="../scenes/end.ts" />
+/// <reference path="../scenes/gameover.ts" />
 /// <reference path="../scenes/play.ts" />
 /// <reference path="../scenes/instructions.ts" />
 /// <reference path="../scenes/menu.ts" /> 

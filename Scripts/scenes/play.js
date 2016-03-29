@@ -21,12 +21,14 @@ var scenes;
         // CONSTRUCTOR ++++++++++++++++++++++
         function Play() {
             _super.call(this);
+            this.score = 0;
+            this.lifes = 100;
         }
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Play.prototype.start = function () {
             // Set Car Count
-            this._carCount = 6;
+            this._carCount = 4;
             // Instantiate Car array
             this._cars = new Array();
             // added background to the scene
@@ -45,12 +47,25 @@ var scenes;
             }
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
+            //Add lives Label
+            this._livesLabel = new objects.Label("Lives: 0", "60px Consolas", "#000000", 150, 20, true);
+            this.addChild(this._livesLabel);
+            //Add score Label
+            this._scoreLabel = new objects.Label("Score: 0", "60px Consolas", "#000000", 750, 20, true);
+            this.addChild(this._scoreLabel);
             // add this scene to the global stage container
             stage.addChild(this);
+        };
+        Play.prototype._redrawInfo = function () {
+            this._scoreLabel.text = "Score: " + this.score;
+            this._livesLabel.text = "Lifes: " + Math.round(this.lifes);
         };
         // PLAY Scene updates here
         Play.prototype.update = function () {
             var _this = this;
+            if (Math.round(this.lifes) <= 0) {
+                this._gameOver();
+            }
             this._background.update();
             //this._island.update();
             this._player.update();
@@ -58,7 +73,16 @@ var scenes;
                 car.update();
                 _this._collision.check(car);
             });
+            this._redrawInfo();
             //this._collision.check(this._island);
+        };
+        Play.prototype._gameOver = function () {
+            //FadeOut 
+            this._fadeOut(500, function () {
+                // Switch to the INSTRUCTIONS Scene
+                scene = config.Scene.GAMEOVER;
+                changeScene();
+            });
         };
         return Play;
     }(objects.Scene));

@@ -6,7 +6,9 @@ File description:
 - menu scene, first UI shown to the user
 
 Revision:
-1 -
+1 - added button for the instructions
+2 - added the background image to the menu scene
+3 - added the fadeIn and fadeOut function
 */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -25,14 +27,21 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Menu.prototype.start = function () {
-            //Add Menu Label
-            this._menuLabel = new objects.Label("MENU SCENE", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._menuLabel);
+            this._bgImage = new createjs.Bitmap(assets.getResult("MenuBackground"));
+            this.addChild(this._bgImage);
             // add the Start button to the MENU scene
-            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);
+            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80, true);
             this.addChild(this._startButton);
+            // add the Instructions button to the MENU scene
+            this._instructionsButton = new objects.Button("InstructionsButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);
+            this.addChild(this._instructionsButton);
             // Start Button event listener
             this._startButton.on("click", this._startButtonClick, this);
+            this._instructionsButton.on("click", this._instructionsButtonClick, this);
+            // Setup Background
+            this._setupBackground("WhiteBackground");
+            // FadeIn
+            this._fadeIn(500);
             // add this scene to the global stage container
             stage.addChild(this);
         };
@@ -40,11 +49,23 @@ var scenes;
         Menu.prototype.update = function () {
         };
         //EVENT HANDLERS ++++++++++++++++++++
-        // LEFT_CAVE Button click event handler
+        // START Button click event handler
         Menu.prototype._startButtonClick = function (event) {
-            // Switch to the LEFT_CAVE Scene
-            scene = config.Scene.PLAY;
-            changeScene();
+            //FadeOut 
+            this._fadeOut(500, function () {
+                // Switch to the PLAY Scene
+                scene = config.Scene.PLAY;
+                changeScene();
+            });
+        };
+        // INSTRUCTIONS Button click event handler
+        Menu.prototype._instructionsButtonClick = function (event) {
+            //FadeOut 
+            this._fadeOut(500, function () {
+                // Switch to the INSTRUCTIONS Scene
+                scene = config.Scene.INSTRUCTIONS;
+                changeScene();
+            });
         };
         return Menu;
     }(objects.Scene));

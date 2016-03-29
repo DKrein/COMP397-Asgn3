@@ -12,6 +12,7 @@ Revision:
 module objects {
     // PLAYER CLASS ++++++++++++++++++++++++++++++
     export class Player extends createjs.Bitmap {
+        
         // PRIVATE INSTANCE VARIABLES
         private _upperBounds: number;
         private _lowerBounds: number;

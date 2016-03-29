@@ -16,7 +16,7 @@ module objects {
         
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor() {
-           super("background");
+           super("road");
             
            this._speed.x = 5; //background speed
            this._reset(-1024);

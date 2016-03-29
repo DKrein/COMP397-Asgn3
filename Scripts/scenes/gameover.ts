@@ -6,12 +6,12 @@ File description:
 - game over scene
 
 Revision:
-1 - 
+1 - changed the game from END to GAMEOVER
 */
 
-// LEFT_CAVE SCENE
+// GAMEOVER SCENE
 module scenes {
-    export class End extends objects.Scene {
+    export class GameOver extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _endLabel: objects.Label;
         private _restartButton: objects.Button;
@@ -28,7 +28,7 @@ module scenes {
         public start(): void {
             //Add Menu Label
             this._endLabel = new objects.Label(
-                "END SCENE", "60px Consolas",
+                "GAMEOVER SCENE", "60px Consolas",
                 "#000000",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._endLabel);

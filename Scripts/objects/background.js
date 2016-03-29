@@ -21,7 +21,7 @@ var objects;
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Background() {
-            _super.call(this, "background");
+            _super.call(this, "road");
             this._speed.x = 5; //background speed
             this._reset(-1024);
         }

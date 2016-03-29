@@ -7,6 +7,7 @@ File description:
 
 Revision:
 1 - added instructions static var and changed the screen size
+2 - changed the name from END to GAMEOVER
 */
 var config;
 (function (config) {
@@ -17,7 +18,7 @@ var config;
         Scene.MENU = 0;
         Scene.INSTRUCTIONS = 1;
         Scene.PLAY = 2;
-        Scene.END = 3;
+        Scene.GAMEOVER = 3;
         return Scene;
     }());
     config.Scene = Scene;
