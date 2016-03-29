@@ -25,23 +25,23 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Play.prototype.start = function () {
-            // Set Cloud Count
-            this._cloudCount = 3;
-            // Instantiate Cloud array
-            this._clouds = new Array();
+            // Set Car Count
+            this._carCount = 6;
+            // Instantiate Car array
+            this._cars = new Array();
             // added background to the scene
             this._background = new objects.Background();
             this.addChild(this._background);
             // added island to the scene
-            this._island = new objects.Island();
-            this.addChild(this._island);
+            //this._island = new objects.Island();
+            //this.addChild(this._island);
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
-            //added clouds to the scene
-            for (var cloud = 0; cloud < this._cloudCount; cloud++) {
-                this._clouds[cloud] = new objects.Cloud();
-                this.addChild(this._clouds[cloud]);
+            //added cars to the scene
+            for (var car = 0; car < this._carCount; car++) {
+                this._cars[car] = new objects.Car();
+                this.addChild(this._cars[car]);
             }
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
@@ -52,13 +52,13 @@ var scenes;
         Play.prototype.update = function () {
             var _this = this;
             this._background.update();
-            this._island.update();
+            //this._island.update();
             this._player.update();
-            this._clouds.forEach(function (cloud) {
-                cloud.update();
-                _this._collision.check(cloud);
+            this._cars.forEach(function (car) {
+                car.update();
+                _this._collision.check(car);
             });
-            this._collision.check(this._island);
+            //this._collision.check(this._island);
         };
         return Play;
     }(objects.Scene));

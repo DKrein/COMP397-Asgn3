@@ -36,7 +36,7 @@ module managers {
                 }
                 
                 // check if it's a cloud hit
-                if(object.name === "cloud") {
+                if(object.name === "car") {
                     console.log("cloud hit!");
                 }
             }

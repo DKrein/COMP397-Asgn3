@@ -1,3 +1,14 @@
+/*
+Author: Douglas Krein
+Last Modified by: Douglas krein
+Last Modified: 03-28-2016
+File description: 
+- scene where the game runs
+
+Revision:
+1 - ajusted name of background class
+*/
+
 module objects {
     // ISLAND CLASS ++++++++++++++++++++++++++++++++++++
     export class Island extends objects.GameObject {
