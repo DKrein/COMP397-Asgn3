@@ -28,23 +28,25 @@ var scenes;
         // Start Method
         Play.prototype.start = function () {
             // Set Car Count
-            this._carCount = 4;
+            this._carCount = 7;
+            // Setup Background
+            this._setupBackground("WhiteBackground");
             // Instantiate Car array
             this._cars = new Array();
             // added background to the scene
             this._background = new objects.Background();
             this.addChild(this._background);
             // added island to the scene
-            //this._island = new objects.Island();
-            //this.addChild(this._island);
-            // added player to the scene
-            this._player = new objects.Player();
-            this.addChild(this._player);
+            this._fuelCan = new objects.FuelCan();
+            this.addChild(this._fuelCan);
             //added cars to the scene
             for (var car = 0; car < this._carCount; car++) {
                 this._cars[car] = new objects.Car();
                 this.addChild(this._cars[car]);
             }
+            // added player to the scene
+            this._player = new objects.Player();
+            this.addChild(this._player);
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
             //Add lives Label
@@ -67,22 +69,22 @@ var scenes;
                 this._gameOver();
             }
             this._background.update();
-            //this._island.update();
+            this._fuelCan.update();
             this._player.update();
             this._cars.forEach(function (car) {
                 car.update();
                 _this._collision.check(car);
             });
             this._redrawInfo();
-            //this._collision.check(this._island);
+            this._collision.check(this._fuelCan);
         };
         Play.prototype._gameOver = function () {
             //FadeOut 
-            this._fadeOut(500, function () {
-                // Switch to the INSTRUCTIONS Scene
-                scene = config.Scene.GAMEOVER;
-                changeScene();
-            });
+            //this._fadeOut(500, () => {
+            // Switch to the GAMEOVER Scene
+            scene = config.Scene.GAMEOVER;
+            changeScene();
+            //});
         };
         return Play;
     }(objects.Scene));

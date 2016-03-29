@@ -1,3 +1,13 @@
+/*
+Author: Douglas Krein
+Last Modified by: Douglas krein
+Last Modified: 03-28-2016
+File description:
+- object for the gameObject
+
+Revision:
+1 - created a public reset function
+*/
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -34,6 +44,9 @@ var objects;
             this.y = value;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
+        GameObject.prototype.reset = function () {
+            this._reset(0);
+        };
         GameObject.prototype.update = function () {
             var boundValue = 0;
             // scroll the ocean 5 px per frame

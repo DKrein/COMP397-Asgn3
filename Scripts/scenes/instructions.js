@@ -29,10 +29,10 @@ var scenes;
             this._bgImage = new createjs.Bitmap(assets.getResult("InstructionsBackground"));
             this.addChild(this._bgImage);
             // add the Start button to the MENU scene
-            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80, true);
+            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X - 240, config.Screen.CENTER_Y + 250, true);
             this.addChild(this._startButton);
             // add the Start button to the MENU scene
-            this._backButton = new objects.Button("BackButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);
+            this._backButton = new objects.Button("BackButton", config.Screen.CENTER_X + 140, config.Screen.CENTER_Y + 250, true);
             this.addChild(this._backButton);
             // Start Button event listener
             this._startButton.on("click", this._startButtonClick, this);

@@ -7,6 +7,8 @@ File description:
 
 Revision:
 1 - changed the game from END to GAMEOVER
+2 - added background image
+3 - added score in the label
 */
 
 // GAMEOVER SCENE
@@ -15,6 +17,7 @@ module scenes {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _endLabel: objects.Label;
         private _restartButton: objects.Button;
+        private _bgImage: createjs.Bitmap;
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -26,11 +29,17 @@ module scenes {
         
         // Start Method
         public start(): void {
+            // Setup Background
+            this._setupBackground("WhiteBackground");
+            
+            this._bgImage = new createjs.Bitmap(assets.getResult("GameOverBackground"));
+            this.addChild(this._bgImage);
+            
             //Add Menu Label
             this._endLabel = new objects.Label(
-                "GAMEOVER SCENE", "60px Consolas",
+                play.score, "60px Consolas",
                 "#000000",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+                config.Screen.CENTER_X + 260, config.Screen.CENTER_Y - 18, true);
             this.addChild(this._endLabel);
             
             // add the BACK button to the OVER scene
@@ -43,7 +52,8 @@ module scenes {
             // START_OVER Button event listener
             this._restartButton.on("click", this._restartButtonClick, this);
 
-
+            
+            
             // add this scene to the global stage container
             stage.addChild(this);
         }
@@ -58,9 +68,11 @@ module scenes {
         
         // START_OVER Button click event handler
         private _restartButtonClick(event: createjs.MouseEvent) {
-            // Switch to the INTRO Scene
-            scene = config.Scene.MENU;
-            changeScene();
+            this._fadeOut(500, () => {
+                // Switch to the INTRO Scene
+                scene = config.Scene.MENU;
+                changeScene();
+            });
         }
     }
 }

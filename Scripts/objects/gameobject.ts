@@ -1,3 +1,14 @@
+/*
+Author: Douglas Krein
+Last Modified by: Douglas krein
+Last Modified: 03-28-2016
+File description: 
+- object for the gameObject
+
+Revision:
+1 - created a public reset function    
+*/
+
 module objects {
     // GAMEOBJECT SUPER CLASS ++++++++++++++++++++++++++++++++++++
     export class GameObject extends createjs.Bitmap {
@@ -46,6 +57,9 @@ module objects {
         
         
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
+        public reset():void{
+            this._reset(0);
+        }
         public update():void {
             var boundValue:number = 0;
             // scroll the ocean 5 px per frame

@@ -1,3 +1,15 @@
+/*
+Author: Douglas Krein
+Last Modified by: Douglas krein
+Last Modified: 03-28-2016
+File description: 
+- Here is where I control the colision with the sprites
+
+Revision:
+1 - changed the name of the objects to identify new sprites
+2 - added the functionality to add score and remove life according the collision
+*/
+
 module managers {
     // COLLISION MANAGER CLASS
     export class Collision {
@@ -30,15 +42,20 @@ module managers {
               the other object is less than the minimum distance */
             if(this.distance(startPoint, endPoint) < minimumDistance) {
                 
-                // check if it's an island hit
-                if(object.name === "island") {
-                    console.log("island hit!");
+                // check if it's an fuelCan hit
+                if(object.name === "fuelCan") {
+                    console.log("fuelCan hit!");
+                    object.reset();
+                    play.score += 50;
+                    if (play.lifes <= 90) {
+                        play.lifes += 10;
+                    }
                 }
                 
-                // check if it's a cloud hit
+                // check if it's a car hit
                 if(object.name === "car") {
-                    console.log("cloud hit!");
-                    play.lifes-=0.2;
+                    console.log("car hit!");
+                    play.lifes-=0.5;
                 }
                 
             }

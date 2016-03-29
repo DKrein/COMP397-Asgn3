@@ -37,13 +37,13 @@ var assetData = [
     { id: "MenuBackground", src: "../../Assets/images/menuBg.png" },
     { id: "GameOverBackground", src: "../../Assets/images/gameOverBg.png" },
     { id: "InstructionsBackground", src: "../../Assets/images/instructionsBg.png" },
-    { id: "island", src: "../../Assets/images/island.png" },
     { id: "avatar", src: "../../Assets/images/avatar.png" },
     { id: "enemy1", src: "../../Assets/images/enemy1.png" },
     { id: "enemy2", src: "../../Assets/images/enemy2.png" },
     { id: "enemy3", src: "../../Assets/images/enemy3.png" },
     { id: "enemy4", src: "../../Assets/images/enemy4.png" },
     { id: "road", src: "../../Assets/images/road.png" },
+    { id: "fuelCan", src: "../../Assets/images/fuelCan.png" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();
@@ -121,7 +121,7 @@ function changeScene() {
             console.log("Starting GAMEOVER Scene");
             break;
     }
-    console.log(currentScene.numChildren);
+    //console.log(currentScene.numChildren);
 }
 window.onload = preload;
 
