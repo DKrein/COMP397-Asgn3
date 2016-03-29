@@ -28,7 +28,7 @@ var objects;
             this._lowerBounds = config.Screen.HEIGHT - (this.height * 0.5);
             this.x = 950;
         }
-        // PRIVATE METHODS
+        // PRIVATE METHODS 
         Player.prototype._checkBounds = function () {
             if (this.y < this._upperBounds) {
                 this.y = this._upperBounds;
@@ -41,6 +41,11 @@ var objects;
         Player.prototype.update = function () {
             this.y = stage.mouseY;
             this._checkBounds();
+            /*
+            var angle = Math.atan2(stage.mouseY,300)*-1;
+            angle = angle * (380/Math.PI);
+            var angle = Math.atan2(this.y - stage.mouseY,this.x - stage.mouseX) * 180 / Math.PI;
+            this.rotation = angle;  */
         };
         return Player;
     }(createjs.Bitmap));

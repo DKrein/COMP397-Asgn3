@@ -43,7 +43,8 @@ var assetData = [
     { id: "enemy3", src: "../../Assets/images/enemy3.png" },
     { id: "enemy4", src: "../../Assets/images/enemy4.png" },
     { id: "road", src: "../../Assets/images/road.png" },
-    { id: "fuelCan", src: "../../Assets/images/fuelCan.png" }
+    { id: "fuelCan", src: "../../Assets/images/fuelCan.png" },
+    { id: "bgSound", src: "../../Assets/audio/bgTheme.mp3" }
 ];
 function preload() {
     assets = new createjs.LoadQueue();

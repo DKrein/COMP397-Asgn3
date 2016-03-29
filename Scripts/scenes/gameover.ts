@@ -29,6 +29,7 @@ module scenes {
         
         // Start Method
         public start(): void {
+             
             // Setup Background
             this._setupBackground("WhiteBackground");
             

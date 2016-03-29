@@ -55,8 +55,13 @@ var scenes;
             //Add score Label
             this._scoreLabel = new objects.Label("Score: 0", "60px Consolas", "#000000", 750, 20, true);
             this.addChild(this._scoreLabel);
+            this._playBackgroundSound();
             // add this scene to the global stage container
             stage.addChild(this);
+        };
+        Play.prototype._playBackgroundSound = function () {
+            this._bgSound = createjs.Sound.play("bgSound", { volume: 0.7 });
+            this._bgSound.on("complete", this._playBackgroundSound, this);
         };
         Play.prototype._redrawInfo = function () {
             this._scoreLabel.text = "Score: " + this.score;
@@ -82,6 +87,7 @@ var scenes;
             //FadeOut 
             //this._fadeOut(500, () => {
             // Switch to the GAMEOVER Scene
+            this._bgSound = createjs.Sound.stop();
             scene = config.Scene.GAMEOVER;
             changeScene();
             //});

@@ -35,7 +35,7 @@ module objects {
             this.x = 950;
         }
 
-        // PRIVATE METHODS
+        // PRIVATE METHODS 
         private _checkBounds(): void {
             if (this.y < this._upperBounds) {
                 this.y = this._upperBounds;
@@ -51,6 +51,12 @@ module objects {
         public update(): void {
             this.y = stage.mouseY;
             this._checkBounds();
+            
+            /*
+            var angle = Math.atan2(stage.mouseY,300)*-1;  
+            angle = angle * (380/Math.PI); 
+            var angle = Math.atan2(this.y - stage.mouseY,this.x - stage.mouseX) * 180 / Math.PI;
+            this.rotation = angle;  */
         }
     }
 }

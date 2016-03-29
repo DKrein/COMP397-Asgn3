@@ -25,6 +25,7 @@ module scenes {
         private _carCount:number;
         private _player: objects.Player;
         private _collision: managers.Collision;
+        private _bgSound: any;
        
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -83,9 +84,15 @@ module scenes {
                 20, 
                 true);
             this.addChild(this._scoreLabel);    
+            this._playBackgroundSound();
             
             // add this scene to the global stage container
             stage.addChild(this);
+        }
+        
+        protected _playBackgroundSound(): void{
+             this._bgSound = createjs.Sound.play("bgSound", {volume: 0.7});
+             this._bgSound.on("complete",this._playBackgroundSound,this);
         }
         
         protected _redrawInfo():void{
@@ -120,6 +127,7 @@ module scenes {
             //FadeOut 
             //this._fadeOut(500, () => {
                 // Switch to the GAMEOVER Scene
+                this._bgSound = createjs.Sound.stop();
                 scene = config.Scene.GAMEOVER;
                 changeScene();
             //});
