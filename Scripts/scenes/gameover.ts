@@ -38,7 +38,7 @@ module scenes {
             
             //Add Menu Label
             this._endLabel = new objects.Label(
-                play.score, "60px Consolas",
+                ""+play.score, "60px Consolas",
                 "#000000",
                 config.Screen.CENTER_X + 260, config.Screen.CENTER_Y - 18, true);
             this.addChild(this._endLabel);
