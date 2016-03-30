@@ -31,7 +31,7 @@ module managers {
             var objectHalfHeight:number = object.height * 0.5;
             var minimumDistance:number = playerHalfHeight + objectHalfHeight;
             
-            startPoint.x = this._player.x;
+            startPoint.x = this._player.x;  
             startPoint.y = this._player.y;
             
             endPoint.x = object.centerX + object.x;
